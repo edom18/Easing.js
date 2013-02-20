@@ -196,6 +196,23 @@ var easing = {
         if (s == undefined) s = 1.70158; 
         if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
         return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+    },
+    linear: function (t, b, c, d) {
+        return (c * t / d) + b;
+    },
+    easeIn: function (t, b, c, d) {
+        return (c * (t /= d) * t) + b;
+    },
+    easeOut: function (t, b, c, d) {
+        return c * (-(t /= d) * (t - 2)) + b;
+    },
+    easeInOut: function (t, b, c, d) {
+        if ((t /= d) < 0.5) {
+            return c * ((t *= 2) * t / 2) + b;
+        }
+        else {
+            return c * (-2 * t * (t - 2) - 1) + b;
+        }
     }
 };
 
